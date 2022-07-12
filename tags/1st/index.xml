@@ -1,25 +1,16 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
   <channel>
-    <title>JCYH Develop Blog</title>
-    <link>https://jcyh0120.github.io/</link>
-    <description>Recent content on JCYH Develop Blog</description>
+    <title>1st on JCYH Develop Blog</title>
+    <link>https://jcyh0120.github.io/tags/1st/</link>
+    <description>Recent content in 1st on JCYH Develop Blog</description>
     <image>
       <url>https://jcyh0120.github.io/%3Clink%20or%20path%20of%20image%20for%20opengraph,%20twitter-cards%3E</url>
       <link>https://jcyh0120.github.io/%3Clink%20or%20path%20of%20image%20for%20opengraph,%20twitter-cards%3E</link>
     </image>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-tw</language>
-    <lastBuildDate>Tue, 12 Jul 2022 22:00:00 +0800</lastBuildDate><atom:link href="https://jcyh0120.github.io/index.xml" rel="self" type="application/rss+xml" />
-    <item>
-      <title>Hugo 搭配 Github page 架設靜態部落格</title>
-      <link>https://jcyh0120.github.io/posts/blog-with-hugo-and-github-page/</link>
-      <pubDate>Tue, 12 Jul 2022 22:00:00 +0800</pubDate>
-      
-      <guid>https://jcyh0120.github.io/posts/blog-with-hugo-and-github-page/</guid>
-      <description>主要三個步驟：建立Hugo網頁、客製化版面、上傳至Github Page，後續更新部落格的流程&amp;hellip;</description>
-    </item>
-    
+    <lastBuildDate>Tue, 12 Jul 2022 21:30:00 +0800</lastBuildDate><atom:link href="https://jcyh0120.github.io/tags/1st/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Hello Real World 部落格</title>
       <link>https://jcyh0120.github.io/posts/hello-real-world-blog/</link>

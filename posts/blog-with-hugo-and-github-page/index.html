@@ -1,0 +1,239 @@
+<!doctype html><html lang=en dir=auto>
+<head><meta charset=utf-8>
+<meta http-equiv=x-ua-compatible content="IE=edge">
+<meta name=viewport content="width=device-width,initial-scale=1,shrink-to-fit=no">
+<meta name=robots content="index, follow">
+<title>Hugo 搭配 Github page 架設靜態部落格 | JCYH Develop Blog</title>
+<meta name=keywords content="hugo">
+<meta name=description content="主要三個步驟：建立Hugo網頁、客製化版面、上傳至Github Page，後續更新部落格的流程&mldr;">
+<meta name=author content="JeffreyChen">
+<link rel=canonical href=https://jcyh0120.github.io/posts/blog-with-hugo-and-github-page/>
+<link crossorigin=anonymous href=/assets/css/stylesheet.min.c88963fe2d79462000fd0fb1b3737783c32855d340583e4523343f8735c787f0.css integrity="sha256-yIlj/i15RiAA/Q+xs3N3g8MoVdNAWD5FIzQ/hzXHh/A=" rel="preload stylesheet" as=style>
+<link rel=preload href=/apple-touch-icon.png as=image>
+<script defer crossorigin=anonymous src=/assets/js/highlight.min.7680afc38aa6b15ddf158a4f3780b7b1f7dde7e91d26f073e6229bb7a0793c92.js integrity="sha256-doCvw4qmsV3fFYpPN4C3sffd5+kdJvBz5iKbt6B5PJI=" onload=hljs.initHighlightingOnLoad()></script>
+<link rel=icon href=https://jcyh0120.github.io/favicon.ico>
+<link rel=icon type=image/png sizes=16x16 href=https://jcyh0120.github.io/favicon-16x16.png>
+<link rel=icon type=image/png sizes=32x32 href=https://jcyh0120.github.io/favicon-32x32.png>
+<link rel=apple-touch-icon href=https://jcyh0120.github.io/apple-touch-icon.png>
+<link rel=mask-icon href=https://jcyh0120.github.io/safari-pinned-tab.svg>
+<meta name=theme-color content="#2e2e33">
+<meta name=msapplication-TileColor content="#2e2e33">
+<meta name=generator content="Hugo 0.88.1">
+<noscript>
+<style>#theme-toggle,.top-link{display:none}</style>
+<style>@media(prefers-color-scheme:dark){:root{--theme:rgb(29, 30, 32);--entry:rgb(46, 46, 51);--primary:rgb(218, 218, 219);--secondary:rgb(155, 156, 157);--tertiary:rgb(65, 66, 68);--content:rgb(196, 196, 197);--hljs-bg:rgb(46, 46, 51);--code-bg:rgb(55, 56, 62);--border:rgb(51, 51, 51)}.list{background:var(--theme)}.list:not(.dark)::-webkit-scrollbar-track{background:0 0}.list:not(.dark)::-webkit-scrollbar-thumb{border-color:var(--theme)}}</style>
+</noscript><meta property="og:title" content="Hugo 搭配 Github page 架設靜態部落格">
+<meta property="og:description" content="主要三個步驟：建立Hugo網頁、客製化版面、上傳至Github Page，後續更新部落格的流程&mldr;">
+<meta property="og:type" content="article">
+<meta property="og:url" content="https://jcyh0120.github.io/posts/blog-with-hugo-and-github-page/"><meta property="og:image" content="https://jcyh0120.github.io/%3Clink%20or%20path%20of%20image%20for%20opengraph,%20twitter-cards%3E"><meta property="article:section" content="posts">
+<meta property="article:published_time" content="2022-07-12T22:00:00+08:00">
+<meta property="article:modified_time" content="2022-07-12T22:00:00+08:00"><meta property="og:site_name" content="JCYH Develop Blog">
+<meta name=twitter:card content="summary_large_image">
+<meta name=twitter:image content="https://jcyh0120.github.io/%3Clink%20or%20path%20of%20image%20for%20opengraph,%20twitter-cards%3E">
+<meta name=twitter:title content="Hugo 搭配 Github page 架設靜態部落格">
+<meta name=twitter:description content="主要三個步驟：建立Hugo網頁、客製化版面、上傳至Github Page，後續更新部落格的流程&mldr;">
+<script type=application/ld+json>{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Posts","item":"https://jcyh0120.github.io/posts/"},{"@type":"ListItem","position":2,"name":"Hugo 搭配 Github page 架設靜態部落格","item":"https://jcyh0120.github.io/posts/blog-with-hugo-and-github-page/"}]}</script>
+<script type=application/ld+json>{"@context":"https://schema.org","@type":"BlogPosting","headline":"Hugo 搭配 Github page 架設靜態部落格","name":"Hugo 搭配 Github page 架設靜態部落格","description":"主要三個步驟：建立Hugo網頁、客製化版面、上傳至Github Page，後續更新部落格的流程\u0026hellip;","keywords":["hugo"],"articleBody":" 主要有三個步驟\n  Setup Hugo blog Customize blog theme Host on github page   已經架設過 Hugo 可以跳到 更新部落格的流程\nSetup Hugo blog  Install Hugo. Create Github repo for Hugo blog.(管理 source code 用) Clone Repo to local. New a Hugo quickstart site. Commit and push to Remote repo.   記得在 .gitignore 裡面加入 public/\n 這時候網站還沒有辦法顯示，因為缺少 Theme\nCustomize blog theme 1.下載主題 最單純的方式就是在 Hugo官網主題頁 找到想要的主題，連結到 Github 直接下載 ZIP，放到 /themes 目錄下解壓縮\nExample:  /themes/hugo-paper\n2.修改 Config 唯一要注意的是 config.toml or config.yaml 因主題而異，大概都要讀一下主題的說明文件，我也花了滿多時間在找自己想要的配置\n最基本的幾個要修改項目\n// config.yaml title: \"部落格標題\" theme: \"hugo-paper\" (主題名稱) baseURL: https://*username*.github.io/ 3.新增一篇 Post hugo new posts/my-first-post.md\n4.Serve 網站 hugo serve -D\n5.Build 網站 hugo\nHost on github page  Create Github repo with name “username.github.io” Go to /public folder Push to remote Repo\ngit init git add . git commit -m \"first commit\" git branch -M main git remote add origin git@github.com:username/username.github.io.git git push -u origin main  就可以到 https://username.github.io/ 看到自己用 Hugo 建立的部落格了\n更新部落格的流程 一般的教學通常只到架好網站，但我花最多時間的是\n 摸索整個寫文章到更新部落格的流程\n 1. 客製化 post.md 通常會有自己客製化的 archetypes/post.md 作為新文章的預設值，新增文章的指令\nhugo -k post /posts/new-post.md\n2. 標籤分類 在每篇文章內可以用\n// new-post.md tags: [\"tag1\",\"tag2\"] 來將文章做分類\n3. 新增 Menu 通常會想有自訂的 Menu，像是 About, Tags，新增這些頁面的方式是\n// config.yaml menu: main: - identifier: about name: About url: /about weight: 10 - identifier: tags name: Tags url: /tags/ weight: 20 這時候要新增一個 About 的頁面，其他以此類推 hugo new about.md\n4. 更新 Github Page 這裡就是單純的先 build 網站\nhugo\n然後到 /public 的資料夾底下，把所有變動 commit 後，push 到 main branch 就完成一次更新了\n5. 還沒研究的部分  SEO RSS 訂閱 Custom domain Google Analytic  Reference  我把 HUGO 部署在 GITHUB 上當作部落格網站 在 GitHub 部署 Hugo 靜態網站  ","wordCount":"235","inLanguage":"en","datePublished":"2022-07-12T22:00:00+08:00","dateModified":"2022-07-12T22:00:00+08:00","author":{"@type":"Person","name":"JeffreyChen"},"mainEntityOfPage":{"@type":"WebPage","@id":"https://jcyh0120.github.io/posts/blog-with-hugo-and-github-page/"},"publisher":{"@type":"Organization","name":"JCYH Develop Blog","logo":{"@type":"ImageObject","url":"https://jcyh0120.github.io/favicon.ico"}}}</script>
+</head>
+<body id=top>
+<script>localStorage.getItem("pref-theme")==="dark"?document.body.classList.add('dark'):localStorage.getItem("pref-theme")==="light"?document.body.classList.remove('dark'):window.matchMedia('(prefers-color-scheme: dark)').matches&&document.body.classList.add('dark')</script>
+<header class=header>
+<nav class=nav>
+<div class=logo>
+<a href=https://jcyh0120.github.io/ accesskey=h title="Home (Alt + H)">
+<img src=https://jcyh0120.github.io/apple-touch-icon.png alt=logo aria-label=logo height=35>Home</a>
+<span class=logo-switches>
+<button id=theme-toggle accesskey=t title="(Alt + T)"><svg id="moon" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentcolor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.79A9 9 0 1111.21 3 7 7 0 0021 12.79z"/></svg><svg id="sun" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentcolor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/></svg>
+</button>
+</span>
+</div>
+<ul id=menu>
+<li>
+<a href=https://jcyh0120.github.io/tags/ title=Tags>
+<span>Tags</span>
+</a>
+</li>
+</ul>
+</nav>
+</header>
+<main class=main>
+<article class=post-single>
+<header class=post-header>
+<div class=breadcrumbs><a href=https://jcyh0120.github.io/>Home</a>&nbsp;»&nbsp;<a href=https://jcyh0120.github.io/posts/>Posts</a></div>
+<h1 class=post-title>
+Hugo 搭配 Github page 架設靜態部落格
+</h1>
+<div class=post-meta><span title="2022-07-12 22:00:00 +0800 CST">July 12, 2022</span>&nbsp;·&nbsp;2 min&nbsp;·&nbsp;JeffreyChen
+</div>
+</header> <div class=toc>
+<details>
+<summary accesskey=c title="(Alt + C)">
+<span class=details>Table of Contents</span>
+</summary>
+<div class=inner><ul>
+<li>
+<a href=#setup-hugo-blog aria-label="Setup Hugo blog">Setup Hugo blog</a></li>
+<li>
+<a href=#customize-blog-theme aria-label="Customize blog theme">Customize blog theme</a><ul>
+<li>
+<a href=#1-%e4%b8%8b%e8%bc%89%e4%b8%bb%e9%a1%8c aria-label=1.下載主題>1.下載主題</a></li>
+<li>
+<a href=#2-%e4%bf%ae%e6%94%b9-config aria-label="2.修改 Config">2.修改 Config</a></li>
+<li>
+<a href=#3-%e6%96%b0%e5%a2%9e%e4%b8%80%e7%af%87-post aria-label="3.新增一篇 Post">3.新增一篇 Post</a></li>
+<li>
+<a href=#4-serve-%e7%b6%b2%e7%ab%99 aria-label="4.Serve 網站">4.Serve 網站</a></li>
+<li>
+<a href=#5-build-%e7%b6%b2%e7%ab%99 aria-label="5.Build 網站">5.Build 網站</a></li></ul>
+</li>
+<li>
+<a href=#host-on-github-page aria-label="Host on github page">Host on github page</a></li>
+<li>
+<a href=#%e6%9b%b4%e6%96%b0%e9%83%a8%e8%90%bd%e6%a0%bc%e7%9a%84%e6%b5%81%e7%a8%8b aria-label=更新部落格的流程>更新部落格的流程</a><ul>
+<li>
+<a href=#1-%e5%ae%a2%e8%a3%bd%e5%8c%96-post-md aria-label="1. 客製化 post.md">1. 客製化 post.md</a></li>
+<li>
+<a href=#2-%e6%a8%99%e7%b1%a4%e5%88%86%e9%a1%9e aria-label="2. 標籤分類">2. 標籤分類</a></li>
+<li>
+<a href=#3-%e6%96%b0%e5%a2%9e-menu aria-label="3. 新增 Menu">3. 新增 Menu</a></li>
+<li>
+<a href=#4-%e6%9b%b4%e6%96%b0-github-page aria-label="4. 更新 Github Page">4. 更新 Github Page</a></li>
+<li>
+<a href=#5-%e9%82%84%e6%b2%92%e7%a0%94%e7%a9%b6%e7%9a%84%e9%83%a8%e5%88%86 aria-label="5. 還沒研究的部分">5. 還沒研究的部分</a></li></ul>
+</li>
+<li>
+<a href=#reference aria-label=Reference>Reference</a>
+</li>
+</ul>
+</div>
+</details>
+</div>
+<div class=post-content>
+<p>主要有三個步驟</p>
+<blockquote>
+<ol>
+<li>Setup Hugo blog</li>
+<li>Customize blog theme</li>
+<li>Host on github page</li>
+</ol>
+</blockquote>
+<p>已經架設過 Hugo 可以跳到 <a href=#更新部落格的流程>更新部落格的流程</a></p>
+<h2 id=setup-hugo-blog>Setup Hugo blog<a hidden class=anchor aria-hidden=true href=#setup-hugo-blog>#</a></h2>
+<ol>
+<li><a href=https://gohugo.io/getting-started/installing/ target=_blank>Install Hugo</a>.</li>
+<li>Create Github repo for Hugo blog.(管理 source code 用)</li>
+<li>Clone Repo to local.</li>
+<li>New a <a href=https://gohugo.io/getting-started/quick-start/#step-3-add-a-theme target=_blank>Hugo quickstart</a> site.</li>
+<li>Commit and push to Remote repo.</li>
+</ol>
+<blockquote>
+<p>記得在 .gitignore 裡面加入 public/</p>
+</blockquote>
+<p>這時候網站還沒有辦法顯示，因為缺少 Theme</p>
+<h2 id=customize-blog-theme>Customize blog theme<a hidden class=anchor aria-hidden=true href=#customize-blog-theme>#</a></h2>
+<h3 id=1-下載主題>1.下載主題<a hidden class=anchor aria-hidden=true href=#1-下載主題>#</a></h3>
+<p>最單純的方式就是在 <a href=https://themes.gohugo.io/ target=_blank>Hugo官網主題頁</a> 找到想要的主題，連結到 Github 直接下載 ZIP，放到 /themes 目錄下解壓縮</p>
+<p>Example:
+> /themes/hugo-paper</p>
+<h3 id=2-修改-config>2.修改 Config<a hidden class=anchor aria-hidden=true href=#2-修改-config>#</a></h3>
+<p>唯一要注意的是 config.toml or config.yaml 因主題而異，大概都要讀一下主題的說明文件，我也花了滿多時間在找自己想要的配置</p>
+<p>最基本的幾個要修改項目</p>
+<pre tabindex=0><code>// config.yaml
+title: &#34;部落格標題&#34;
+theme: &#34;hugo-paper&#34; (主題名稱)
+baseURL: https://*username*.github.io/</code></pre>
+<h3 id=3-新增一篇-post>3.新增一篇 Post<a hidden class=anchor aria-hidden=true href=#3-新增一篇-post>#</a></h3>
+<p><code>hugo new posts/my-first-post.md</code></p>
+<h3 id=4-serve-網站>4.Serve 網站<a hidden class=anchor aria-hidden=true href=#4-serve-網站>#</a></h3>
+<p><code>hugo serve -D</code></p>
+<h3 id=5-build-網站>5.Build 網站<a hidden class=anchor aria-hidden=true href=#5-build-網站>#</a></h3>
+<p><code>hugo</code></p>
+<h2 id=host-on-github-page>Host on github page<a hidden class=anchor aria-hidden=true href=#host-on-github-page>#</a></h2>
+<ol>
+<li>Create Github repo with name &ldquo;<em>username</em>.github.io&rdquo;</li>
+<li>Go to <em>/public</em> folder</li>
+<li><p>Push to remote Repo</p>
+<div class=highlight><pre tabindex=0 class=chroma><code class=language-bash data-lang=bash>git init
+git add .
+git commit -m <span class=s2>&#34;first commit&#34;</span>
+git branch -M main
+git remote add origin git@github.com:username/username.github.io.git
+git push -u origin main</code></pre></div></li>
+</ol>
+<p>就可以到 <a href=https://*username*.github.io/ target=_blank>https://<em>username</em>.github.io/</a> 看到自己用 Hugo 建立的部落格了</p>
+<hr>
+<h2 id=更新部落格的流程>更新部落格的流程<a hidden class=anchor aria-hidden=true href=#更新部落格的流程>#</a></h2>
+<p>一般的教學通常只到架好網站，但我花最多時間的是</p>
+<blockquote>
+<p><strong>摸索整個寫文章到更新部落格的流程</strong></p>
+</blockquote>
+<h3 id=1-客製化-post-md>1. 客製化 post.md<a hidden class=anchor aria-hidden=true href=#1-客製化-post-md>#</a></h3>
+<p>通常會有自己客製化的 <em>archetypes/post.md</em> 作為新文章的預設值，新增文章的指令</p>
+<p><code>hugo -k post /posts/new-post.md</code></p>
+<h3 id=2-標籤分類>2. 標籤分類<a hidden class=anchor aria-hidden=true href=#2-標籤分類>#</a></h3>
+<p>在每篇文章內可以用</p>
+<pre tabindex=0><code>// new-post.md
+tags: [&#34;tag1&#34;,&#34;tag2&#34;]</code></pre>
+<p>來將文章做分類</p>
+<h3 id=3-新增-menu>3. 新增 Menu<a hidden class=anchor aria-hidden=true href=#3-新增-menu>#</a></h3>
+<p>通常會想有自訂的 Menu，像是 About, Tags，新增這些頁面的方式是</p>
+<pre tabindex=0><code>// config.yaml
+menu:
+  main:
+    - identifier: about
+      name: About
+      url: /about
+      weight: 10
+    - identifier: tags
+      name: Tags
+      url: /tags/
+      weight: 20</code></pre>
+<p>這時候要新增一個 About 的頁面，其他以此類推
+<code>hugo new about.md</code></p>
+<h3 id=4-更新-github-page>4. 更新 Github Page<a hidden class=anchor aria-hidden=true href=#4-更新-github-page>#</a></h3>
+<p>這裡就是單純的先 build 網站</p>
+<p><code>hugo</code></p>
+<p>然後到 <em>/public</em> 的資料夾底下，把所有變動 commit 後，push 到 main branch 就完成一次更新了</p>
+<h3 id=5-還沒研究的部分>5. 還沒研究的部分<a hidden class=anchor aria-hidden=true href=#5-還沒研究的部分>#</a></h3>
+<ul>
+<li>SEO</li>
+<li>RSS 訂閱</li>
+<li>Custom domain</li>
+<li>Google Analytic</li>
+</ul>
+<hr>
+<h2 id=reference>Reference<a hidden class=anchor aria-hidden=true href=#reference>#</a></h2>
+<ul>
+<li><a href=https://marcolee.tohot.net/2020/282/ target=_blank>我把 HUGO 部署在 GITHUB 上當作部落格網站</a></li>
+<li><a href=https://medium.com/@chswei/%E5%9C%A8-github-%E9%83%A8%E7%BD%B2-hugo-%E9%9D%9C%E6%85%8B%E7%B6%B2%E7%AB%99-9c40682dfe40 target=_blank>在 GitHub 部署 Hugo 靜態網站</a></li>
+</ul>
+</div>
+<footer class=post-footer>
+<ul class=post-tags>
+<li><a href=https://jcyh0120.github.io/tags/hugo/>hugo</a></li>
+</ul>
+<nav class=paginav>
+<a class=next href=https://jcyh0120.github.io/posts/hello-real-world-blog/>
+<span class=title>Next Page »</span>
+<br>
+<span>Hello Real World 部落格</span>
+</a>
+</nav>
+</footer>
+</article>
+</main>
+<footer class=footer>
+<span>&copy; 2022 <a href=https://jcyh0120.github.io/>JCYH Develop Blog</a></span>
+<span>
+Powered by
+<a href=https://gohugo.io/ rel="noopener noreferrer" target=_blank>Hugo</a> &
+        <a href=https://git.io/hugopapermod rel=noopener target=_blank>PaperMod</a>
+</span>
+</footer>
+<a href=#top aria-label="go to top" title="Go to Top (Alt + G)" class=top-link id=top-link accesskey=g><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 12 6" fill="currentcolor"><path d="M12 6H0l6-6z"/></svg>
+</a>
+<script>let menu=document.getElementById('menu');menu&&(menu.scrollLeft=localStorage.getItem("menu-scroll-position"),menu.onscroll=function(){localStorage.setItem("menu-scroll-position",menu.scrollLeft)}),document.querySelectorAll('a[href^="#"]').forEach(a=>{a.addEventListener("click",function(b){b.preventDefault();var a=this.getAttribute("href").substr(1);window.matchMedia('(prefers-reduced-motion: reduce)').matches?document.querySelector(`[id='${decodeURIComponent(a)}']`).scrollIntoView():document.querySelector(`[id='${decodeURIComponent(a)}']`).scrollIntoView({behavior:"smooth"}),a==="top"?history.replaceState(null,null," "):history.pushState(null,null,`#${a}`)})})</script>
+<script>var mybutton=document.getElementById("top-link");window.onscroll=function(){document.body.scrollTop>800||document.documentElement.scrollTop>800?(mybutton.style.visibility="visible",mybutton.style.opacity="1"):(mybutton.style.visibility="hidden",mybutton.style.opacity="0")}</script>
+<script>document.getElementById("theme-toggle").addEventListener("click",()=>{document.body.className.includes("dark")?(document.body.classList.remove('dark'),localStorage.setItem("pref-theme",'light')):(document.body.classList.add('dark'),localStorage.setItem("pref-theme",'dark'))})</script>
+</body>
+</html>

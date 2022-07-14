@@ -5,11 +5,10 @@
     <link>https://jcyh0120.github.io/tags/hugo/</link>
     <description>Recent content in hugo on JCYH Develop Blog</description>
     <image>
-      <url>https://jcyh0120.github.io/%3Clink%20or%20path%20of%20image%20for%20opengraph,%20twitter-cards%3E</url>
-      <link>https://jcyh0120.github.io/%3Clink%20or%20path%20of%20image%20for%20opengraph,%20twitter-cards%3E</link>
+      <url>https://jcyh0120.github.io/apple-touch-icon.png</url>
+      <link>https://jcyh0120.github.io/apple-touch-icon.png</link>
     </image>
     <generator>Hugo -- gohugo.io</generator>
-    <language>zh-tw</language>
     <lastBuildDate>Tue, 12 Jul 2022 22:00:00 +0800</lastBuildDate><atom:link href="https://jcyh0120.github.io/tags/hugo/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Hugo 搭配 Github page 架設靜態部落格</title>
